@@ -1,7 +1,7 @@
 import { ADD_TODO, REMOVE_TODO} from './actionCreators'
 
 const initialState = {
-  todos: [],
+  todos: ["Eat", "Sleep", "Run"],
   id: 0
 }
 
@@ -23,3 +23,5 @@ const rootReducer = (state = initialState, action) => {
       return state;
   }
 }
+
+export default rootReducer
