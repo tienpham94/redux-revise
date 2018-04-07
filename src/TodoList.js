@@ -32,11 +32,6 @@ class TodoList extends Component {
     const todos = this.props.todos.map((val, ind) => <Todo removeTodo={this.removeTodo.bind(this, val.id)} task={val.task} key={ind} />)
     return ( 
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="task">Task</label>
-          <input type="text" name="task" id="task" onChange={this.handleChange}/>
-          <button>Add a Todo!</button>
-        </form>
         <ul>
           {todos}
         </ul>
