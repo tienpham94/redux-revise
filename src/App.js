@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import './App.css';
-import TodoList from './TodoList'
-import { Link, Route, Redirect } from 'react-router-dom'
+import React, { Component } from "react";
+import "./App.css";
+import TodoList from "./TodoList";
+import { Link, Route, Redirect } from "react-router-dom";
 
 class App extends Component {
   render() {
@@ -14,8 +14,8 @@ class App extends Component {
         <p>
           <Link to="/todos/new">Add a todo!</Link>
         </p>
-        <Route path="/todos" component={TodoList}/>
-        <Route exact path="/todos" render={() => <Redirect to="/todos"/>}/>
+        <Route path="/todos" component={TodoList} />
+        <Route exact path="/todos" render={() => <Redirect to="/todos" />} />
       </div>
     );
   }

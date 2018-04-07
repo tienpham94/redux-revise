@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import { createStore } from 'redux';
-import rootReducer from './rootReducer';
-import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import registerServiceWorker from "./registerServiceWorker";
+import { createStore } from "redux";
+import rootReducer from "./rootReducer";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 
 const store = createStore(
   rootReducer,
@@ -18,6 +18,7 @@ ReactDOM.render(
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </Provider>
-  , document.getElementById('root'));
+  </Provider>,
+  document.getElementById("root")
+);
 registerServiceWorker();

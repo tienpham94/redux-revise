@@ -1,6 +1,23 @@
 import React, { Component } from 'react';
 
 export default class NewTodoForm extends Component {
+  state = {
+    task: ''
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()    
+    this.props.handleSubmit(this.state.task)
+    e.target.reset()
+    this.props.history.push('/todos')
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]:e.target.value
+    })
+  }
+
   render(){
     return (
       <form onSubmit={this.handleSubmit}>
