@@ -1,7 +1,7 @@
 import { ADD_TODO, REMOVE_TODO} from './actionCreators'
 
 const initialState = {
-  todos: ["Eat", "Sleep", "Run"],
+  todos: [],
   id: 0
 }
 

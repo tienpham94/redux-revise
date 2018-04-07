@@ -9,17 +9,24 @@ class TodoList extends Component {
 
 
   handleSubmit = (e) => {
-    
+    e.preventDefault()
+    this.props.dispatch({
+      type:'ADD_TODO',
+      task: this.state.task
+    })
+    e.target.reset()
   }
 
   handleChange = (e) => {
     console.log('changed');
     this.setState({
-      [e.target.name]:[e.target.value]
+      [e.target.name]:e.target.value
     })
   }
 
   render() { 
+
+    const todos = this.props.todos.map((val, ind) => <Todo todo={val.task} key={ind} />)
     return ( 
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -28,7 +35,7 @@ class TodoList extends Component {
           <button>Add a Todo!</button>
         </form>
         <ul>
-          {this.props.todos.map((todo, ind) => <Todo todo={todo} key={ind} />)}
+          {todos}
         </ul>
       </div>
       )
