@@ -15,9 +15,11 @@ const rootReducer = (state = initialState, action) => {
         todos: [...newState.todos, {task: action.task, id:newState.id}]
       }
     case REMOVE_TODO: 
+      console.log(action.id)
+      let todos = state.todos.filter(val => val.id !== action.id)
       return {
         ...state,
-        todos: state.todos.filter(todo => todo.id !== action.id)
+        todos
       }
     default: 
       return state;

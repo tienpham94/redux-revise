@@ -10,6 +10,8 @@ class TodoList extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    console.log(this.props);
+    
     this.props.dispatch({
       type:'ADD_TODO',
       task: this.state.task
@@ -18,15 +20,21 @@ class TodoList extends Component {
   }
 
   handleChange = (e) => {
-    console.log('changed');
     this.setState({
       [e.target.name]:e.target.value
     })
   }
 
+  removeTodo = (id) => {
+    this.props.dispatch({
+      type: 'REMOVE_TODO',
+      id
+    })
+  }
+
   render() { 
 
-    const todos = this.props.todos.map((val, ind) => <Todo todo={val.task} key={ind} />)
+    const todos = this.props.todos.map((val, ind) => <Todo removeTodo={this.removeTodo.bind(this, val.id)} task={val.task} key={ind} />)
     return ( 
       <div>
         <form onSubmit={this.handleSubmit}>
