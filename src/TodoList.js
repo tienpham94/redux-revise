@@ -3,7 +3,7 @@ import Todo from "./Todo";
 import NewTodoForm from "./NewTodoForm";
 import { connect } from "react-redux";
 import { addTodo, removeTodo, getTodos } from "./actionCreators";
-import { Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 class TodoList extends Component {
   state = {
@@ -32,21 +32,23 @@ class TodoList extends Component {
     ));
     return (
       <div>
-        <Route
-          path="/todos/new"
-          component={props => (
-            <NewTodoForm {...props} handleSubmit={this.handleAdd} />
-          )}
-        />
-        <Route
-          exact
-          path="/todos"
-          component={() => (
-            <div>
-              <ul>{todos}</ul>
-            </div>
-          )}
-        />
+        <Switch>
+          <Route
+            path="/todos/new"
+            component={props => (
+              <NewTodoForm {...props} handleSubmit={this.handleAdd} />
+            )}
+          />
+          <Route
+            exact
+            path="/todos"
+            component={() => (
+              <div>
+                <ul>{todos}</ul>
+              </div>
+            )}
+          />
+        </Switch>
       </div>
     );
   }
